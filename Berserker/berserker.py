@@ -17,7 +17,7 @@ def slow_text(words):
         ]))
         sys.stdout.write(char)
         sys.stdout.flush()
-    time.sleep(1)
+    time.sleep(0)
 cols, rows = shutil.get_terminal_size()
 print(Fore.YELLOW +"")
 slow_text(" ____  _____ ____  ____  _____ ____  _  _______ ____  ".center(cols))
@@ -49,6 +49,106 @@ print("                                                                         
 player_name =  input(Fore.YELLOW +"What's your name adventurer ? : ".lower().strip().capitalize().center(cols))
 
 
+def game_over():
+    slow_text(" ______________________________________________________".center(cols))
+    slow_text("   _____          __  __ ______    ______      ________ _____  ".center(cols))
+    slow_text("  / ____|   /\   |  \/  |  ____|  / __ \ \    / /  ____|  __ \ ".center(cols))
+    slow_text(" | |  __   /  \  | \  / | |__    | |  | \ \  / /| |__  | |__) |".center(cols))
+    slow_text(" | | |_ | / /\ \ | |\/| |  __|   | |  | |\ \/ / |  __| |  _  / ".center(cols))
+    slow_text(" | |__| |/ ____ \| |  | | |____  | |__| | \  /  | |____| | \ \ ".center(cols))
+    slow_text("  \_____/_/    \_\_|  |_|______|  \____/   \/   |______|_|  \_\ ".center(cols))
+    print(" ______________________________________________________".center(cols))
+    sys.exit()
+
+
+def print_wizard(colour):
+    print("                   .".center(cols))
+    print("        /^\     .  ".center(cols))
+    print("    /\    V        ".center(cols))
+    print("   /__\   I      O  o".center(cols))
+    print("  //.. \  I     .    ".center(cols))
+    print("  \].`[/  I          ".center(cols))
+    print("  /l\/j\  (]    .  O  ".center(cols))
+    print(" /. ~~ ,\/I          .".center(cols))
+    print(" \L__j^\/I       o   ".center(cols))
+    print("  \/--v}  I     o   .  ".center(cols))
+    print("  |    |  I   _________".center(cols))
+    print("  |    |  I c(`       ')o".center(cols))
+    print("  |    l  I   \.     ,/".center(cols))
+    print("_/j  L l\_!  _//^---^-\_".center(cols))
+    print(colour + "")
+
+
+def print_goblin():
+    print(
+        "                                                                                                                 /(.-""-.)\                      ")
+    print(
+        "                                                                                                             |\  \/      \/  /|               ")
+    print(
+        "                                                                                                             | \ / =.  .= \ / |                    ")
+    print(
+        "                                                                                                             \( \   o\/o   / )/                 ")
+    print(
+        "                                                                                                              \_, '-/  \-' ,_/                      ")
+    print(
+        "                                                                                                                /   \__/   \                       ")
+    print(
+        "                                                                                                                \ \__/\__/ /                         ")
+    print(
+        "                                                                                                              ___\ \|--|/ /___                  ")
+    print(
+        "                                                                                                            /`    \      /    `\                    ")
+    print(
+        "                                                                                                           |      '----'        |                     ")
+
+
+def print_horse():
+    print("")
+    print(
+        "                                                                                                                     {)                                                      ")
+    print(
+        "                                                                                                                  c==//\                                                      ")
+    print(
+        "                                                                                                             _-~~/-._|_|                                                          ")
+    print(
+        "                                                                                                            /'_,/,   //'~~~\;;,                                                                         ")
+    print(
+        "                                                                                                             `~  _( _||_..\ | ';;                                                                 ")
+    print(
+        "                                                                                                               /'~|/ ~' `\<\>  ;                                                           ")
+    print(
+        "                                                                                                              /  |      /  |    ")
+
+
+def print_knight():
+    print(
+        "                                                                                                           ,^.                   ")
+    print(
+        "                                                                                                           |||                    ")
+    print(
+        "                                                                                                           |||       _T_           ")
+    print(
+        "                                                                                                           |||   .-.[:|:].-.       ")
+    print(
+        "                                                                                                           ===_ /\|   '   |/       ")
+    print(
+        "                                                                                                           E]_|\/ \--|-|''''|      ")
+    print(
+        "                                                                                                           O  `'  '=[:]| A  |      ")
+    print(
+        "                                                                                                                 /####|  P |       ")
+    print(
+        "                                                                                                                /#####`.__.'       ")
+    print(
+        "                                                                                                                / \/###\/\       ")
+    print(
+        "                                                                                                                | \     / |       ")
+    print(
+        "                                                                                                                | |     | |       ")
+    print(
+        "                                                                                                              <####)     (####>      ")
+
+
 while True:
     age = int(input(Fore.GREEN +f"Enter your age {player_name}: ".center(cols)))
     if age >= 16:
@@ -58,29 +158,13 @@ while True:
         print(Fore.YELLOW +"")
         answer = input("You approach a stables do you get a horse or walk? Answer = (h/w): ".lower().strip().capitalize().center(cols))
         if answer == "h":
-            print("")       
-            print("                                                                                                                     {)                                                      ")
-            print("                                                                                                                  c==//\                                                      ")
-            print("                                                                                                             _-~~/-._|_|                                                          ")
-            print("                                                                                                            /'_,/,   //'~~~\;;,                                                                         ")
-            print("                                                                                                             `~  _( _||_..\ | ';;                                                                 ")
-            print("                                                                                                               /'~|/ ~' `\<\>  ;                                                           ")
-            print("                                                                                                              /  |      /  |    ")                                                              
+            print_horse()
             print(Fore.GREEN +"")
             slow_text("You get onto your horse and ride east towards Falador".center(cols))
             slow_text("after riding for over an hour you stop to give your horse a rest".center(cols))
             slow_text("Over your left shoulder you notice a goblin approaching...".center(cols))
             print(Fore.YELLOW +"")
-            print("                                                                                                                 /(.-""-.)\                      ")
-            print("                                                                                                             |\  \/      \/  /|               ")
-            print("                                                                                                             | \ / =.  .= \ / |                    ")
-            print("                                                                                                             \( \   o\/o   / )/                 ")
-            print("                                                                                                              \_, '-/  \-' ,_/                      ")
-            print("                                                                                                                /   \__/   \                       ")
-            print("                                                                                                                \ \__/\__/ /                         ")
-            print("                                                                                                              ___\ \|--|/ /___                  ")
-            print("                                                                                                            /`    \      /    `\                    ")
-            print("                                                                                                           |      '----'        |                     ") 
+            print_goblin()
             print("                                                                                               ")                                   
             print(Fore.YELLOW +"                                                                                          ")
             answer =input("Do you kill the goblin or run away? Answer = (k/r) : ".lower().strip().capitalize().center(cols))
@@ -97,21 +181,7 @@ while True:
                 slow_text(Fore.GREEN +"After killing your first goblin a wizard approach's you".center(cols))
                 slow_text("he notices your injured during battle in order for him to heal you he asks for you to solve a riddle".center(cols))
                 print("")
-                print("                   .".center(cols))
-                print ("        /^\     .  ".center(cols))
-                print("    /\    V        ".center(cols))
-                print("   /__\   I      O  o".center(cols))
-                print("  //.. \  I     .    ".center(cols))
-                print("  \].`[/  I          ".center(cols)) 
-                print("  /l\/j\  (]    .  O  ".center(cols))
-                print(" /. ~~ ,\/I          .".center(cols))
-                print(" \L__j^\/I       o   ".center(cols))
-                print("  \/--v}  I     o   .  ".center(cols))
-                print("  |    |  I   _________".center(cols))
-                print("  |    |  I c(`       ')o".center(cols))
-                print("  |    l  I   \.     ,/".center(cols))
-                print("_/j  L l\_!  _//^---^-\_".center(cols))
-                print(Fore.YELLOW +"")
+                print_wizard(Fore.YELLOW)
                 answer = input ("What belongs to you but other people use it more than you (You use it to intoduce yourself) : ".capitalize().lower().strip().center(cols))
                 if answer == "name":
                      
@@ -184,15 +254,7 @@ while True:
                                     print(Fore.YELLOW +"")
                                     slow_text("Congratulations you killed the Goblin Leader ".center(cols))
                                     slow_text("you have completed the game!".center(cols))
-                                    slow_text(" ______________________________________________________".center(cols))
-                                    slow_text("   _____          __  __ ______    ______      ________ _____  ".center(cols))
-                                    slow_text("  / ____|   /\   |  \/  |  ____|  / __ \ \    / /  ____|  __ \ ".center(cols))
-                                    slow_text(" | |  __   /  \  | \  / | |__    | |  | \ \  / /| |__  | |__) |".center(cols))
-                                    slow_text(" | | |_ | / /\ \ | |\/| |  __|   | |  | |\ \/ / |  __| |  _  / ".center(cols))
-                                    slow_text(" | |__| |/ ____ \| |  | | |____  | |__| | \  /  | |____| | \ \ ".center(cols))
-                                    slow_text("  \_____/_/    \_\_|  |_|______|  \____/   \/   |______|_|  \_\ ".center(cols))
-                                    print(" ______________________________________________________".center(cols))
-                                    sys.exit()
+                                    game_over()
                         
                             elif answer == "r":
                                     print(Fore.GREEN +"")
@@ -216,19 +278,7 @@ while True:
 
         elif answer == "w": 
             print(Fore.YELLOW +"                                                                  ".center(cols))
-            print("                                                                                                           ,^.                   ")
-            print("                                                                                                           |||                    ") 
-            print("                                                                                                           |||       _T_           ")
-            print("                                                                                                           |||   .-.[:|:].-.       ")
-            print("                                                                                                           ===_ /\|   '   |/       ")   
-            print("                                                                                                           E]_|\/ \--|-|''''|      ")
-            print("                                                                                                           O  `'  '=[:]| A  |      ")
-            print("                                                                                                                 /####|  P |       ")
-            print("                                                                                                                /#####`.__.'       ")
-            print("                                                                                                                / \/###\/\       ")
-            print("                                                                                                                | \     / |       ")
-            print("                                                                                                                | |     | |       ")
-            print("                                                                                                              <####)     (####>      ")
+            print_knight()
 
             print(Fore.GREEN +"")
             slow_text("You decided to walk east towards Falador, ".center(cols))
@@ -237,17 +287,7 @@ while True:
 
 
             print(Fore.RED +"")
-            print("                                                                                                                 /(.-""-.)\                      ")
-            print("                                                                                                             |\  \/      \/  /|               ")
-            print("                                                                                                             | \ / =.  .= \ / |                    ")
-            print("                                                                                                             \( \   o\/o   / )/                 ")
-            print("                                                                                                              \_, '-/  \-' ,_/                      ")
-            print("                                                                                                                /   \__/   \                       ")
-            print("                                                                                                                \ \__/\__/ /                         ")
-            print("                                                                                                              ___\ \|--|/ /___                  ")
-            print("                                                                                                            /`    \      /    `\                    ")
-            print("                                                                                                           |      '----'        |                     ") 
-
+            print_goblin()
 
         answer =input("Do you kill the goblin or run away? Answer = (k/r) : ".capitalize().lower().strip().center(cols))
         if answer == "r":
@@ -263,21 +303,7 @@ while True:
                 slow_text("he notices your injured during battle in order for him to heal you he asks for you to solve a riddle".center(cols))
                 print(Fore.YELLOW +"")
 
-                print("                   .".center(cols))
-                print ("        /^\     .  ".center(cols))
-                print("    /\    V        ".center(cols))
-                print("   /__\   I      O  o".center(cols))
-                print("  //.. \  I     .    ".center(cols))
-                print("  \].`[/  I          ".center(cols)) 
-                print("  /l\/j\  (]    .  O  ".center(cols))
-                print(" /. ~~ ,\/I          .".center(cols))
-                print(" \L__j^\/I       o   ".center(cols))
-                print("  \/--v}  I     o   .  ".center(cols))
-                print("  |    |  I   _________".center(cols))
-                print("  |    |  I c(`       ')o".center(cols))
-                print("  |    l  I   \.     ,/".center(cols))
-                print("_/j  L l\_!  _//^---^-\_".center(cols))
-                print(Fore.RED +"")
+                print_wizard(Fore.RED)
                 answer = input ("What belongs to you but other people use it more than you (You use it to intoduce yourself) : ".capitalize().lower().strip().center(cols))
                 if answer == "name":
                      
@@ -350,16 +376,8 @@ while True:
                                     slow_text("Congratulations you kill the Goblin Leader!  ".center(cols)) 
                                     slow_text("you have completed the game!".center(cols))
                                     print(Fore.GREEN +"")
-                                    slow_text(" ______________________________________________________".center(cols))
-                                    slow_text("   _____          __  __ ______    ______      ________ _____  ".center(cols))
-                                    slow_text("  / ____|   /\   |  \/  |  ____|  / __ \ \    / /  ____|  __ \ ".center(cols))
-                                    slow_text(" | |  __   /  \  | \  / | |__    | |  | \ \  / /| |__  | |__) |".center(cols))
-                                    slow_text(" | | |_ | / /\ \ | |\/| |  __|   | |  | |\ \/ / |  __| |  _  / ".center(cols))
-                                    slow_text(" | |__| |/ ____ \| |  | | |____  | |__| | \  /  | |____| | \ \ ".center(cols))
-                                    slow_text("  \_____/_/    \_\_|  |_|______|  \____/   \/   |______|_|  \_\ ".center(cols))
-                                    print(" ______________________________________________________".center(cols))
-                                    sys.exit()
-                        
+                                    game_over()
+
                             elif answer == "r":
                                     slow_text ("As you try to run away from the goblin leader".center(cols))
                                     slow_text("he throws a axe which hits you in the head.You instantly die".center(cols))   
